@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { AppointmentPost } from '../components/Form';
 
 export default function Home() {
   const [prayerContent, updatePrayerContent] = useState('Hear my prayer.');
@@ -94,7 +93,6 @@ export default function Home() {
             </button>
           </div>
         </form>
-        <AppointmentPost />
       </div>
 
       <ul className="bg-bubbles">
