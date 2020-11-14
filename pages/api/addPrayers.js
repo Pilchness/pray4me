@@ -8,7 +8,8 @@ export default async function handler(req, res) {
     const post = await db.collection('prayers').insertOne({
       date: new Date(),
       prayer: req.body.prayer,
-      sender: req.body.sender
+      sender: req.body.sender,
+      status: 'new'
     });
     res.status(201).json({ success: true, data: post });
   } catch (error) {

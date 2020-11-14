@@ -1,35 +1,11 @@
 import { useState } from 'react';
-
+import { postData } from '../components/postData';
 export default function Home() {
   const [prayerContent, updatePrayerContent] = useState('Hear my prayer.');
   const [prayerSender, updatePrayerSender] = useState('Anonymous');
-  const contentType = 'application/json';
-
-  const postData = async () => {
-    try {
-      const res = await fetch('/api/addPrayers', {
-        method: 'POST',
-        headers: {
-          Accept: contentType,
-          'Content-Type': contentType
-        },
-        body: JSON.stringify({ prayer: prayerContent, sender: prayerSender })
-      });
-      //console.log(res);
-
-      if (!res.ok) {
-        throw new Error(res.status);
-      }
-
-      router.push('/');
-    } catch (error) {
-      setMessage('Failed to add post');
-    }
-  };
 
   const submitHandler = () => {
-    console.log(prayerContent, prayerSender);
-    postData();
+    postData(prayerContent, prayerSender);
   };
 
   return (
@@ -107,6 +83,7 @@ export default function Home() {
         <li></li>
         <li></li>
       </ul>
+      <footer></footer>
     </div>
   );
 }

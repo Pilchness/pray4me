@@ -1,23 +1,23 @@
-export const postData = async (api, data, destination = '/') => {
-  //let apiSource = `'/${api}'`;
-  //console.log(apiSource);
+const contentType = 'application/json';
+
+export const postData = async (prayerContent, prayerSender) => {
+  // const postData = async () => {
   try {
-    const res = await fetch('../pages/api/addPrayers.js', {
+    const res = await fetch('/api/addPrayers', {
       method: 'POST',
       headers: {
         Accept: contentType,
         'Content-Type': contentType
       },
-      body: JSON.stringify({ data })
+      body: JSON.stringify({ prayer: prayerContent, sender: prayerSender })
     });
+    //console.log(res);
 
     if (!res.ok) {
       throw new Error(res.status);
-    } else {
-      console.log('Data sent successfully');
     }
 
-    router.push(destination);
+    router.push('/');
   } catch (error) {
     setMessage('Failed to add post');
   }
