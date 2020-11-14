@@ -10,15 +10,13 @@ export default function PrayerList(props) {
     <>
       <main id="maincontent">
         <h1 id="pagetitle">Prayer List</h1>
-        <div
-          style={{ display: 'flex', marginLeft: 'auto', marginRight: 'auto', marginTop: '170px', overflowY: 'scroll' }}
-        >
+        <div style={{ display: 'flex', marginLeft: 'auto', marginRight: 'auto', marginTop: '170px' }}>
           <div
             style={{
               position: 'fixed',
               width: '100%',
               height: '200px',
-              backgroundColor: 'black',
+              backgroundColor: 'white',
               top: 0,
               left: 0,
               zIndex: 50
@@ -58,6 +56,7 @@ export default function PrayerList(props) {
                 <br></br>
               </div>
             ))}
+            <div style={{ height: 100 }}></div>
           </ul>
         </div>
       </main>
